@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Turnos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
+
+    <style>
+        h1{
+            margin: 0%;
+            text-align: center;
+            color: green;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items:center ;
+            justify-content:top;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 10px rgba(0,0,0,0.1);
+            margin-bottom: 0px;
+        }
+        h2 {
+
+            margin: 10px;
+            color: green;
+        
+        }
+        input, select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #calendar {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .current-day {
+            background-color: rgb(206, 230, 240) !important;
+            color: black !important;
+            font-weight: bold;
+            padding: 0.2rem !important; /* Ajusta el relleno si es necesario */
+            border: 1px solid rgb(91, 87, 87) !important; /* Añadir borde para que se vea mejor */
+            margin: 0.5px !important;
+
+        }
+        button {
+            padding: 10px 20px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: green;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(54, 182, 54);
+        }
+        @media (min-width: 768px) {
+    form {
+        flex-direction: row; /* En pantallas más grandes, cambia la dirección a fila */
+        justify-content: center; /* Opcional: centra el contenido en la fila */
+    }
+
+    input, select {
+        margin-right: 10px; /* Añade un margen derecho para separar los elementos */
+    }
+
+    button {
+        margin-top: 0; /* Elimina el margen superior en pantallas más grandes */
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Calendario de Trabajo</h1>
+    <hr>
+    <form>
+        <label for="fecha"><h2>Fecha de inicio:</h2></label>
+        <input type="date" id="fecha" required>
+        <label for="turno"><h2>Turno:</h2></label>
+        <select id="turno">
+            <option value="mañana">Mañana</option>
+            <option value="tarde">Tarde</option>
+            <option value="noche">Noche</option>
+        </select>
+        <button type="submit" class="boton">Calcular</button>
+    </form>
+    <div id="calendar"></div>
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+
